@@ -19,9 +19,10 @@
   box-sizing: border-box;
 }
 
-html, body, #root {
+html, body {
   height: 100%;
   margin: 0;
+  overflow: hidden;
 }
 
 body {
@@ -80,7 +81,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 0;
+}
+
+.form-panel {
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .panel-title {
@@ -106,6 +111,16 @@ body {
   margin: 0 0 20px 0;
 }
 
+.locked-note {
+  font-size: 12px;
+  color: var(--muted);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-bottom: 20px;
+}
+
 .field-row {
   display: flex;
   gap: 14px;
@@ -113,6 +128,28 @@ body {
 
 .field.half {
   flex: 1;
+}
+
+.field {
+  margin-bottom: 18px;
+  transition: background 0.6s ease, box-shadow 0.6s ease;
+  border-radius: 8px;
+  padding: 4px 8px;
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.field.flash {
+  background: var(--flash);
+  box-shadow: 0 0 0 1px #e9c96a;
+}
+
+.field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 6px;
 }
 
 .field-group {
@@ -216,53 +253,6 @@ body {
   margin-bottom: 4px;
 }
 
-.locked-note {
-  font-size: 12px;
-  color: var(--muted);
-  background: var(--accent-soft);
-  border: 1px solid var(--accent);
-  border-radius: 6px;
-  padding: 8px 12px;
-  margin-bottom: 20px;
-}
-
-.field {
-  margin-bottom: 18px;
-  transition: background 0.6s ease, box-shadow 0.6s ease;
-  border-radius: 8px;
-  padding: 4px 8px;
-  margin-left: -8px;
-  margin-right: -8px;
-}
-
-.field.flash {
-  background: var(--flash);
-  box-shadow: 0 0 0 1px #e9c96a;
-}
-
-.field label {
-  display: block;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--muted);
-  margin-bottom: 6px;
-}
-
-.field .value-box {
-  min-height: 20px;
-  font-size: 14.5px;
-  color: var(--ink);
-  padding: 10px 12px;
-  background: #fbfcfc;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-}
-
-.field .value-box.empty {
-  color: #a3ada9;
-  font-style: italic;
-}
-
 .sentiment-tag {
   display: inline-block;
   font-size: 12.5px;
@@ -325,7 +315,6 @@ body {
 
 .chat-log {
   flex: 1;
-  min-height: 0;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -396,26 +385,4 @@ body {
 .chat-input-row button:disabled {
   background: #a9b8b3;
   cursor: not-allowed;
-}
-
-.suggestions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 12px;
-}
-
-.suggestion-chip {
-  font-size: 12px;
-  padding: 5px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: white;
-  cursor: pointer;
-  color: var(--muted);
-}
-
-.suggestion-chip:hover {
-  border-color: var(--accent);
-  color: var(--accent);
 }

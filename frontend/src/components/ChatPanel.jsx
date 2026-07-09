@@ -4,14 +4,6 @@ import { addMessage, setLoading } from "../store/chatSlice";
 import { applyAgentUpdate, setValidation, setSuggestedFollowups } from "../store/formSlice";
 import { sendChatMessage } from "../api/client";
 
-const SUGGESTIONS = [
-  "I met Dr. Smith today, a meeting, discussed Product X efficiency, sentiment positive, shared brochures",
-  "Actually the name was Dr. John and sentiment is negative",
-  "Summarize today's interaction",
-  "Can I submit this?",
-  "Start a new interaction",
-];
-
 export default function ChatPanel() {
   const dispatch = useDispatch();
   const { messages, loading } = useSelector((state) => state.chat);
@@ -73,14 +65,6 @@ export default function ChatPanel() {
           </div>
         ))}
         {loading && <div className="bubble assistant">Thinking…</div>}
-      </div>
-
-      <div className="suggestions">
-        {SUGGESTIONS.map((s) => (
-          <button key={s} className="suggestion-chip" onClick={() => send(s)}>
-            {s}
-          </button>
-        ))}
       </div>
 
       <div className="chat-input-row">

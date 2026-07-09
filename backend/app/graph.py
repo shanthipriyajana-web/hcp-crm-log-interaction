@@ -3,6 +3,7 @@ from datetime import datetime
 from langchain_core.messages import SystemMessage, ToolMessage
 from langgraph.graph import StateGraph, END
 
+
 from app.state import AgentState
 from app.llm import llm
 from app.tools import ALL_TOOLS, TOOL_RUNNERS, _followups_for
@@ -43,6 +44,7 @@ def agent_node(state: AgentState) -> dict:
     ] + state["messages"]
     response = llm_with_tools.invoke(messages)
     return {"messages": [response]}
+
 
 
 def tool_executor_node(state: AgentState) -> dict:

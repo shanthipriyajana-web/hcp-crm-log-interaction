@@ -65,7 +65,7 @@ export default function InteractionForm() {
   };
 
   return (
-    <div className="panel">
+    <div className="panel form-panel">
       <p className="panel-title">Interaction Details</p>
       <div className="locked-note">
         This form is controlled by the AI Assistant. Describe the visit in chat and the fields
