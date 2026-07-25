@@ -157,20 +157,3 @@ npm run dev
 Open `http://localhost:5173`. If your backend runs somewhere other than
 `localhost:8000`, set `VITE_API_URL` in a `.env` file in `frontend/`.
 
-## Try it
-
-1. Type: *"I met Dr. Smith today, it was a meeting, we discussed Product X
-   efficiency, sentiment was positive, and I shared brochures."* →
-   `log_interaction` fires, the form fills in and flashes, and an AI
-   Suggested Follow-ups list appears.
-2. Type: *"Actually the name was Dr. John and the sentiment is negative."*
-   → `edit_interaction` fires, only those two fields change (and the
-   follow-up suggestions update to match the new sentiment).
-3. Type: *"Summarize today's interaction."* → `summarize_interaction`
-   fires, agent writes a short recap.
-4. Type: *"Can I submit this?"* → `validate_form` fires, confirms
-   readiness or lists what's missing.
-5. Type: *"Start a new interaction."* → `clear_form` fires, everything
-   resets.
-6. Click **Submit Interaction** once required fields are filled — this
-   persists the record to MySQL via `POST /api/interactions`.
